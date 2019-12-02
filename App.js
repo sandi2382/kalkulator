@@ -32,19 +32,21 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.flexWrapper}>
-        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
-        <OutlinedTextField
-          label="Phone number"
-          keyboardType="phone-pad"
-          formatText={this.formatText}
-          onSubmitEditing={this.onSubmit}
-          ref={this.fieldRef}
-          style={styles.neki}
-        />
-      </View>
+      <SafeAreaView>
+        <View style={styles.flexWrapper}>
+          <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+          <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+          <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+          <OutlinedTextField
+            label="Phone number"
+            keyboardType="phone-pad"
+            formatText={this.formatText}
+            onSubmitEditing={this.onSubmit}
+            ref={this.fieldRef}
+            style={styles.neki}
+          />
+        </View>
+      </SafeAreaView>
     );
   }
 }
