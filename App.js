@@ -9,6 +9,12 @@ import {
 } from 'react-native';
 
 import {
+  TextField,
+  FilledTextField,
+  OutlinedTextField,
+} from 'react-native-material-textfield';
+
+import {
   Colors
 } from 'react-native/Libraries/NewAppScreen';
 
