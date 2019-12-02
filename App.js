@@ -32,19 +32,14 @@ class App extends Component {
     return (
       <SafeAreaView>
         <View style={styles.flexWrapper}>
-          <View
-            style={{width: 50, height: 50, backgroundColor: 'powderblue'}}
-          />
-          <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
-          <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
-          <OutlinedTextField
-            label="Phone number"
-            keyboardType="phone-pad"
-            formatText={this.formatText}
-            onSubmitEditing={this.onSubmit}
-            ref={this.fieldRef}
-            style={styles.neki}
-          />
+          <View style={styles.flexItemDefault}>
+            <Text>Omg kk kul</Text>
+          </View>
+          <View style={styles.flexItemDefault} />
+          <View style={styles.flexItemDefault} />
+          <View style={styles.flexItemDefault} />
+          <View style={styles.flexItemDefault} />
+          <View style={styles.flexItemDefault} />
         </View>
       </SafeAreaView>
     );
@@ -72,8 +67,17 @@ const styles = StyleSheet.create({
     right: 0,
   },
   flexWrapper: {
-    flex: 1,
-    flexDirection: 'row',
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'column',
+    // justifyContent: 'center',
+    // alignItems: 'stretch',
+  },
+  flexItemDefault: {
+    height: 50,
+    backgroundColor: 'skyblue',
+    borderWidth: 1,
+    borderColor: '#000',
   },
 });
 
