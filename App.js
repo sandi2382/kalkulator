@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,61 +14,64 @@ import {
   OutlinedTextField,
 } from 'react-native-material-textfield';
 
-import {
-  Colors
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Text>Neki neki? =)</Text>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+class App extends Component {
+  fieldRef = React.createRef();
+
+  onSubmit = () => {
+    let {current: field} = this.fieldRef;
+
+    console.log(field.value());
+  };
+
+  formatText = text => {
+    return text.replace(/[^+\d]/g, '');
+  };
+
+  render() {
+    return (
+      <View style={styles.flexWrapper}>
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+        <OutlinedTextField
+        label="Phone number"
+        keyboardType="phone-pad"
+        formatText={this.formatText}
+        onSubmitEditing={this.onSubmit}
+        ref={this.fieldRef}
+        style={styles.neki}
+      />
+      </View>
+    );
+  }
+}
+
+// const App: () => React$Node = () => {
+//   return (
+//     <>
+//       <StatusBar barStyle="dark-content" />
+//       <SafeAreaView>
+//         <ScrollView
+//           contentInsetAdjustmentBehavior="automatic"
+//           style={styles.scrollView}>
+//           <Text>Neki neki? =)</Text>
+//         </ScrollView>
+//       </SafeAreaView>
+//     </>
+//   );
+// };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
   engine: {
     position: 'absolute',
     right: 0,
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  flexWrapper: {
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 50,
   },
 });
 
