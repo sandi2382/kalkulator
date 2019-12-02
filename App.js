@@ -6,6 +6,7 @@ import {
   View,
   Text,
   StatusBar,
+  Platform,
 } from 'react-native';
 
 import {
@@ -36,13 +37,13 @@ class App extends Component {
         <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
         <OutlinedTextField
-        label="Phone number"
-        keyboardType="phone-pad"
-        formatText={this.formatText}
-        onSubmitEditing={this.onSubmit}
-        ref={this.fieldRef}
-        style={styles.neki}
-      />
+          label="Phone number"
+          keyboardType="phone-pad"
+          formatText={this.formatText}
+          onSubmitEditing={this.onSubmit}
+          ref={this.fieldRef}
+          style={styles.neki}
+        />
       </View>
     );
   }
@@ -71,7 +72,6 @@ const styles = StyleSheet.create({
   flexWrapper: {
     flex: 1,
     flexDirection: 'row',
-    marginTop: 50,
   },
 });
 
