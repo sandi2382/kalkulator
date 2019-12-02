@@ -15,8 +15,6 @@ import {
   OutlinedTextField,
 } from 'react-native-material-textfield';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
 class App extends Component {
   fieldRef = React.createRef();
 
@@ -34,7 +32,9 @@ class App extends Component {
     return (
       <SafeAreaView>
         <View style={styles.flexWrapper}>
-          <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+          <View
+            style={{width: 50, height: 50, backgroundColor: 'powderblue'}}
+          />
           <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
           <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
           <OutlinedTextField
