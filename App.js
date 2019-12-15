@@ -26,6 +26,7 @@ import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-ta
 import {YellowBox} from 'react-native';
 
 import sleep from 'sleep-promise';
+import { thisTypeAnnotation } from '@babel/types';
 
 class App extends Component {
   constructor(props) {
@@ -35,9 +36,13 @@ class App extends Component {
       neki: '',
       izpis: '',
       stop: false,
+      tece: false,
 
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
+
+      retultati: [],
+      imena: [],
 
       zacetniCas: '',
       koncniCas: '',
@@ -75,6 +80,7 @@ class App extends Component {
   }
 
   async pretvoriInIzpis(stevilo, osnova) {
+    this.skrijPokaziGumb();
     var zacetniCas = new Date().getTime();
     if (this.state.tableData !== '') {
       this.state.tableData = [];
@@ -95,11 +101,34 @@ class App extends Component {
         izpis: '',
       });
     }
+    this.skrijPokaziGumb();
     var dva = '';
     var koncniCas = new Date().getTime();
     var porabljenCas = (koncniCas - zacetniCas);
     this.setState({
       izpis: 'Porabljen čas: ' + porabljenCas + ' milisekund',
+    });
+  }
+
+  skrijPokaziGumb() {
+    // if (this.state.tece === false) {
+    //   this.setState({ tece: true, });
+    // } else {
+    //   // this.setState({ tece: false, });
+    // }
+  }
+
+  stopKlik() {
+    this.setState({
+      stop: true,
+      tece: false,
+    });
+  }
+
+  startKlik() {
+    this.setState({
+      stop: false,
+      tece: true,
     });
   }
 
@@ -109,6 +138,7 @@ class App extends Component {
       neki: '',
       izpis: '',
       stop: false,
+      tece: false,
 
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
@@ -146,24 +176,26 @@ class App extends Component {
             <Text>{this.state.izpis}</Text>
           </View>
           <View style={{ backgroundColor: '#eeffff' }}>
-            <Button
-              title="Start"
-              style={{height: 80}}
-              onPress={() => {
-                // Alert.alert(this.state.language + " : " + this.state.neki);
-                this.pretvoriInIzpis(this.state.neki, this.state.language);
-                // Alert.alert(this.state.izpis);
-              }}
-            />
-            <Button
-              title="Stop"
-              style={{height: 80}}
-              onPress={() => {
-                this.setState({
-                  stop: true,
-                });
-              }}
-            />
+            {!this.state.tece ? (
+              <Button
+                title="Start"
+                style={{height: 80}}
+                onPress={() => {
+                  // Alert.alert(this.state.language + " : " + this.state.neki);
+                  this.startKlik();
+                  this.pretvoriInIzpis(this.state.neki, this.state.language);
+                  // Alert.alert(this.state.izpis);
+                }}
+              />
+            ) : (
+              <Button
+                title="Stop"
+                style={{height: 80}}
+                onPress={() => {
+                  this.stopKlik();
+                }}
+              />
+            )}
             <Button
               title="Počisti"
               style={{height: 80}}
