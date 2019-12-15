@@ -25,6 +25,7 @@ class App extends Component {
     this.state = {
       language: '2',
       neki: 'a',
+      izpis: '',
     };
   }
 
@@ -39,6 +40,14 @@ class App extends Component {
   formatText = text => {
     return text.replace(/[^+\d]/g, '');
   };
+
+  pretvoriMedOsnovami(e, a, t) {
+    var r = parseInt(e, a);
+    if ('' != e.trim()) {
+      var i = r.toString(t);
+      return 'NaN' == i.toString() && (i = 'Invalid Input'), i;
+    }
+  }
 
   render() {
     return (
@@ -90,7 +99,7 @@ class App extends Component {
             />
           </View>
           <View style={{ backgroundColor: '#eafa00' }}>
-            <Text>{this.state.neki}</Text>
+            <Text>{this.state.izpis}</Text>
           </View>
         </View>
       </SafeAreaView>
