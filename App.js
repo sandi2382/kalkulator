@@ -20,7 +20,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: '2',
+      osnovniSistem: '2',
       neki: '',
       izpis: '',
       stop: false,
@@ -167,7 +167,7 @@ class App extends Component {
 
   pocisti() {
     this.setState({
-      language: '2',
+      osnovniSistem: '2',
       neki: '',
       izpis: '',
       stop: false,
@@ -205,10 +205,10 @@ class App extends Component {
           <View style={{ backgroundColor: '#eeff96' }}>
             <Text>Osnova: </Text>
             <Picker
-              selectedValue={this.state.language}
+              selectedValue={this.state.osnovniSistem}
               // style={styles.flexPickerItem}
               onValueChange={(itemValue, itemIndex) =>
-                this.setState({language: itemValue})
+                this.setState({osnovniSistem: itemValue})
               }>
               <Picker.Item label="Osnova 2" value="2" />
               <Picker.Item label="Osnova 8" value="8" />
@@ -235,9 +235,9 @@ class App extends Component {
                 title="Start"
                 style={{height: 80}}
                 onPress={() => {
-                  // Alert.alert(this.state.language + " : " + this.state.neki);
+                  // Alert.alert(this.state.osnovniSistem + " : " + this.state.neki);
                   this.startKlik();
-                  this.pretvoriInIzpis(this.state.neki, this.state.language);
+                  this.pretvoriInIzpis(this.state.neki, this.state.osnovniSistem);
                   // Alert.alert(this.state.izpis);
                 }}
               />
