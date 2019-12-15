@@ -44,6 +44,7 @@ class App extends Component {
       imena: [],
       porabljenCas: '',
       vprasajIme: false,
+      ime: '',
     };
   }
 
@@ -188,11 +189,12 @@ class App extends Component {
       imena: [],
       porabljenCas: '',
       vprasajIme: false,
+      ime: '',
     });
   }
 
   shraniPodatke(ime, cas) {
-
+    Alert.alert(this.state.ime+' '+this.state.porabljenCas)
   }
 
   render() {
@@ -261,9 +263,18 @@ class App extends Component {
                 style={{height: 40, borderColor: 'gray', borderWidth: 1}}
                 placeholder = 'Vnesite ime'
                 onChangeText={(itemValue, itemIndex) =>
-                  this.setState({neki: itemValue})
+                  this.setState({ime: itemValue})
                 }
-                value={this.state.neki}
+                value={this.state.ime}
+              />
+            ) : null}
+            {this.state.vprasajIme ? (
+              <Button
+                title="Shrani"
+                style={{height: 80}}
+                onPress={() => {
+                  this.shraniPodatke(1, 1);
+                }}
               />
             ) : null}
           </View>
