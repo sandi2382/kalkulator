@@ -65,7 +65,7 @@ class App extends Component {
     });
   }
   pretvoriInIzpis(stevilo, osnova) {
-    for (var odstevanje = this.pretvoriMedOsnovami(stevilo, osnova, 10); odstevanje >= 0; odstevanje--) {
+    for (var odstevanje = this.pretvoriMedOsnovami(stevilo, osnova, 10); odstevanje > 0; odstevanje--) {
       var dva = this.pretvoriMedOsnovami(odstevanje, 10, 2);
       console.warn(odstevanje);
       var osem = this.pretvoriMedOsnovami(odstevanje, 10, 8);
