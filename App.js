@@ -40,11 +40,9 @@ class App extends Component {
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
 
-      retultati: [],
+      rezultati: [],
       imena: [],
-
-      zacetniCas: '',
-      koncniCas: '',
+      porabljenCas: '',
     };
   }
 
@@ -148,6 +146,7 @@ class App extends Component {
       izpis: 'Porabljen čas: ' + porabljenCas + ' milisekund',
       stop: false,
       tece: false,
+      porabljenCas: porabljenCas,
     });
   }
 
@@ -184,6 +183,10 @@ class App extends Component {
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
     });
+  }
+
+  shraniPodatke(ime, cas) {
+
   }
 
   render() {
