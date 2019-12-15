@@ -30,6 +30,31 @@ class App extends Component {
       language: '2',
       neki: 'a',
       izpis: '??',
+
+      tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
+      tableData: [
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd'],
+        ['a', 'b', 'c', 'd'],
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd'],
+        ['a', 'b', 'c', 'd'],
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd'],
+        ['a', 'b', 'c', 'd'],
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd'],
+        ['a', 'b', 'c', 'd'],
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd'],
+        ['a', 'b', 'c', 'd'],
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd'],
+        ['a', 'b', 'c', 'd'],
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd'],
+        ['a', 'b', 'c', 'd'],
+      ],
     };
   }
 
@@ -88,7 +113,7 @@ class App extends Component {
           </View>
           <View style={{ backgroundColor: '#eeffff' }}>
             <Button
-              title="Press me"
+              title="Start"
               style={{height: 80}}
               onPress={() => {
                 this.state.izpis = "kajj";
@@ -109,6 +134,12 @@ class App extends Component {
           <View style={{ backgroundColor: '#eafa00' }}>
             <Text>{this.state.izpis}</Text>
           </View>
+          <ScrollView style={{ backgroundColor: '#fff', height: 300}}>
+            <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+              <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text}/>
+              <Rows data={this.state.tableData} textStyle={styles.text}/>
+            </Table>
+          </ScrollView>
         </View>
       </SafeAreaView>
     );
@@ -169,6 +200,8 @@ const styles = StyleSheet.create({
   //   borderWidth: 1,
   //   borderColor: 'red',
   // },
+  head: { height: 40, backgroundColor: '#f1f8ff' },
+  text: { margin: 6 }
 });
 
 export default App;
