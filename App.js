@@ -33,27 +33,6 @@ class App extends Component {
 
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [
-        ['1', '2', '3', '4'],
-        ['a', 'b', 'c', 'd'],
-        ['a', 'b', 'c', 'd'],
-        ['1', '2', '3', '4'],
-        ['a', 'b', 'c', 'd'],
-        ['a', 'b', 'c', 'd'],
-        ['1', '2', '3', '4'],
-        ['a', 'b', 'c', 'd'],
-        ['a', 'b', 'c', 'd'],
-        ['1', '2', '3', '4'],
-        ['a', 'b', 'c', 'd'],
-        ['a', 'b', 'c', 'd'],
-        ['1', '2', '3', '4'],
-        ['a', 'b', 'c', 'd'],
-        ['a', 'b', 'c', 'd'],
-        ['1', '2', '3', '4'],
-        ['a', 'b', 'c', 'd'],
-        ['a', 'b', 'c', 'd'],
-        ['1', '2', '3', '4'],
-        ['a', 'b', 'c', 'd'],
-        ['a', 'b', 'c', 'd'],
       ],
     };
   }
@@ -88,6 +67,7 @@ class App extends Component {
     var osem = this.pretvoriMedOsnovami(stevilo, osnova, 8);
     var deset = this.pretvoriMedOsnovami(stevilo, osnova, 10);
     var sesnajst = this.pretvoriMedOsnovami(stevilo, osnova, 16);
+    this.state.tableData.push([dva, osem, deset, sesnajst]);
     this.setState({
       izpis: dva,
     });
