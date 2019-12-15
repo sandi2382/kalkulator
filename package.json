@@ -18,6 +18,7 @@
     "react-native-threads": "0.0.17",
     "react-native-workers": "^0.3.1",
     "react-timer-mixin": "^0.13.4",
+    "rn-workers": "^0.1.7",
     "typescript": "^3.7.2"
   },
   "devDependencies": {
