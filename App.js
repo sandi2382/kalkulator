@@ -19,13 +19,15 @@ import {
   OutlinedTextField,
 } from 'react-native-material-textfield';
 
+Promise = require('react-native/Libraries/Promise');
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       language: '2',
       neki: 'a',
-      izpis: '',
+      izpis: '??',
     };
   }
 
@@ -47,6 +49,13 @@ class App extends Component {
       var i = r.toString(t);
       return 'NaN' == i.toString() && (i = 'Invalid Input'), i;
     }
+  }
+  pretvori(stevilo, osnova, kam) {
+    this.state.izpis = "ok";
+    var e = this.pretvoriMedOsnovami(stevilo, osnova, kam);
+    this.setState({
+      izpis: e,
+    });
   }
 
   render() {
@@ -86,7 +95,10 @@ class App extends Component {
               title="Press me"
               style={{height: 80}}
               onPress={() => {
-                Alert.alert(this.state.language + " : " + this.state.neki);
+                this.state.izpis = "kajj";
+                // Alert.alert(this.state.language + " : " + this.state.neki);
+                this.pretvori(this.state.neki, 10, 16);
+                // Alert.alert(this.state.izpis);
               }}
             />
           </View>
