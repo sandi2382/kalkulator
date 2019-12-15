@@ -43,6 +43,7 @@ class App extends Component {
       rezultati: [],
       imena: [],
       porabljenCas: '',
+      vprasajIme: false,
     };
   }
 
@@ -182,6 +183,11 @@ class App extends Component {
 
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
+
+      rezultati: [],
+      imena: [],
+      porabljenCas: '',
+      vprasajIme: false,
     });
   }
 
@@ -210,6 +216,7 @@ class App extends Component {
           <View style={{ backgroundColor: '#eafa00' }}>
             <TextInput
               style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+              placeholder = 'Vnesite število'
               onChangeText={(itemValue, itemIndex) =>
                 this.setState({neki: itemValue})
               }
@@ -247,6 +254,16 @@ class App extends Component {
                 onPress={() => {
                   this.pocisti();
                 }}
+              />
+            ) : null}
+            {this.state.vprasajIme ? (
+              <TextInput
+                style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                placeholder = 'Vnesite ime'
+                onChangeText={(itemValue, itemIndex) =>
+                  this.setState({neki: itemValue})
+                }
+                value={this.state.neki}
               />
             ) : null}
           </View>
