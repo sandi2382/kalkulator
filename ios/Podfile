@@ -34,6 +34,8 @@ target 'kalkulator' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'RNThread', :path => '../node_modules/react-native-threads'
+
   target 'kalkulatorTests' do
     inherit! :search_paths
     # Pods for testing
