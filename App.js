@@ -26,7 +26,6 @@ import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-ta
 import {YellowBox} from 'react-native';
 
 import sleep from 'sleep-promise';
-import { thisTypeAnnotation } from '@babel/types';
 
 class App extends Component {
   constructor(props) {
@@ -53,7 +52,6 @@ class App extends Component {
 
   onSubmit = () => {
     let {current: field} = this.fieldRef;
-
   };
 
   formatText = text => {
@@ -65,7 +63,7 @@ class App extends Component {
     // e = e.split(' ').join('');
     if ('' != e) {
       var i = r.toString(t);
-      return 'NaN' == i.toString() && (i = 'Invalid Input'), i;
+      return 'NaN' == i.toString() && (i = 'Neveljaven vnos!'), i;
     }
   }
   pretvori(stevilo, osnova, kam) {
@@ -80,6 +78,47 @@ class App extends Component {
   }
 
   async pretvoriInIzpis(stevilo, osnova) {
+    if (osnova == 2) {
+      var re = new RegExp('^[0-1]+$', 'i');
+      if (!re.test(stevilo)) {
+        this.setState({
+          izpis: 'Neveljaven vnos!',
+          stop: false,
+          tece: false,
+        });
+        return false;
+      }
+    } else if (osnova == 8) {
+      var re = new RegExp('^[0-7]+$', 'i');
+      if (!re.test(stevilo)) {
+        this.setState({
+          izpis: 'Neveljaven vnos!',
+          stop: false,
+          tece: false,
+        });
+        return false;
+      }
+    } else if (osnova == 10) {
+      var re = new RegExp('^[0-9]+$', 'i');
+      if (!re.test(stevilo)) {
+        this.setState({
+          izpis: 'Neveljaven vnos!',
+          stop: false,
+          tece: false,
+        });
+        return false;
+      }
+    } else {
+      var re = new RegExp('^[0-9A-F]+$', 'i');
+      if (!re.test(stevilo)) {
+        this.setState({
+          izpis: 'Neveljaven vnos!',
+          stop: false,
+          tece: false,
+        });
+        return false;
+      }
+    }
     this.skrijPokaziGumb();
     var zacetniCas = new Date().getTime();
     if (this.state.tableData !== '') {
@@ -107,6 +146,8 @@ class App extends Component {
     var porabljenCas = (koncniCas - zacetniCas);
     this.setState({
       izpis: 'Porabljen čas: ' + porabljenCas + ' milisekund',
+      stop: false,
+      tece: false,
     });
   }
 
@@ -196,13 +237,15 @@ class App extends Component {
                 }}
               />
             )}
-            <Button
-              title="Počisti"
-              style={{height: 80}}
-              onPress={() => {
-                this.pocisti();
-              }}
-            />
+            {!this.state.tece ? (
+              <Button
+                title="Počisti"
+                style={{height: 80}}
+                onPress={() => {
+                  this.pocisti();
+                }}
+              />
+            ) : null}
           </View>
           <ScrollView style={{ backgroundColor: '#fff', height: 300}}>
             <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
