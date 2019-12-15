@@ -114,7 +114,11 @@ class App extends Component {
     if (this.state.tableData !== '') {
       this.state.tableData = [];
     }
-    for (var odstevanje = this.pretvoriMedOsnovami(stevilo, osnova, 10); odstevanje > 0; odstevanje--) {
+    for (
+      var odstevanje = this.pretvoriMedOsnovami(stevilo, osnova, 10);
+      odstevanje > 0;
+      odstevanje--
+    ) {
       if (this.state.stop === true) {
         this.state.stop = false;
         break;
@@ -133,7 +137,7 @@ class App extends Component {
     this.skrijPokaziGumb();
     var dva = '';
     var koncniCas = new Date().getTime();
-    var porabljenCas = (koncniCas - zacetniCas);
+    var porabljenCas = koncniCas - zacetniCas;
     this.setState({
       izpis: 'Porabljen čas: ' + porabljenCas + ' milisekund',
       stop: false,
@@ -237,7 +241,10 @@ class App extends Component {
                 onPress={() => {
                   // Alert.alert(this.state.osnovniSistem + " : " + this.state.neki);
                   this.startKlik();
-                  this.pretvoriInIzpis(this.state.neki, this.state.osnovniSistem);
+                  this.pretvoriInIzpis(
+                    this.state.neki,
+                    this.state.osnovniSistem,
+                  );
                   // Alert.alert(this.state.izpis);
                 }}
               />
@@ -262,7 +269,7 @@ class App extends Component {
             {this.state.vprasajIme ? (
               <TextInput
                 style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                placeholder = 'Vnesite ime'
+                placeholder="Vnesite ime"
                 onChangeText={(itemValue, itemIndex) =>
                   this.setState({ime: itemValue})
                 }
@@ -281,13 +288,21 @@ class App extends Component {
           </View>
           <ScrollView style={{ backgroundColor: '#fff', height: 300}}>
             <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
-              <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text}/>
+              <Row
+                data={this.state.tableHead}
+                style={styles.head}
+                textStyle={styles.text}
+              />
               <Rows data={this.state.tableData} textStyle={styles.text}/>
             </Table>
           </ScrollView>
           <ScrollView style={{ backgroundColor: '#eee', height: 140}}>
             <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
-              <Row data={this.state.itableHead} style={styles.head} textStyle={styles.text}/>
+              <Row
+                data={this.state.itableHead}
+                style={styles.head}
+                textStyle={styles.text}
+              />
               <Rows data={this.state.itableData} textStyle={styles.text}/>
             </Table>
           </ScrollView>
@@ -351,8 +366,13 @@ const styles = StyleSheet.create({
   //   borderWidth: 1,
   //   borderColor: 'red',
   // },
-  head: { height: 40, backgroundColor: '#f1f8ff' },
-  text: { margin: 6 }
+  head: {
+    height: 40,
+    backgroundColor: '#f1f8ff',
+  },
+  text: {
+    margin: 6,
+  },
 });
 
 export default App;
