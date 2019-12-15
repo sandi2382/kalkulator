@@ -51,10 +51,18 @@ class App extends Component {
     }
   }
   pretvori(stevilo, osnova, kam) {
-    this.state.izpis = "ok";
     var e = this.pretvoriMedOsnovami(stevilo, osnova, kam);
     this.setState({
       izpis: e,
+    });
+  }
+  pretvoriInIzpis(stevilo, osnova) {
+    var dva = this.pretvoriMedOsnovami(stevilo, osnova, 2);
+    var osem = this.pretvoriMedOsnovami(stevilo, osnova, 8);
+    var deset = this.pretvoriMedOsnovami(stevilo, osnova, 10);
+    var sesnajst = this.pretvoriMedOsnovami(stevilo, osnova, 16);
+    this.setState({
+      izpis: dva,
     });
   }
 
@@ -63,6 +71,7 @@ class App extends Component {
       <SafeAreaView>
         <View style={styles.flexWrapper}>
           <View style={{ backgroundColor: '#eeff96' }}>
+            <Text>Osnova: </Text>
             <Picker
               selectedValue={this.state.language}
               // style={styles.flexPickerItem}
@@ -70,24 +79,9 @@ class App extends Component {
                 this.setState({language: itemValue})
               }>
               <Picker.Item label="Osnova 2" value="2" />
-              <Picker.Item label="Osnova 3" value="3" />
-              <Picker.Item label="Osnova 4" value="4" />
-              <Picker.Item label="Osnova 5" value="5" />
-              <Picker.Item label="Osnova 6" value="6" />
-              <Picker.Item label="Osnova 7" value="7" />
               <Picker.Item label="Osnova 8" value="8" />
-              <Picker.Item label="Osnova 9" value="9" />
               <Picker.Item label="Osnova 10" value="10" />
-              <Picker.Item label="Osnova 11" value="11" />
-              <Picker.Item label="Osnova 12" value="12" />
-              <Picker.Item label="Osnova 14" value="13" />
-              <Picker.Item label="Osnova 13" value="14" />
-              <Picker.Item label="Osnova 15" value="15" />
               <Picker.Item label="Osnova 16" value="16" />
-              <Picker.Item label="Osnova 17" value="17" />
-              <Picker.Item label="Osnova 18" value="18" />
-              <Picker.Item label="Osnova 19" value="19" />
-              <Picker.Item label="Osnova 20" value="20" />
             </Picker>
           </View>
           <View style={{ backgroundColor: '#eeffff' }}>
@@ -97,7 +91,7 @@ class App extends Component {
               onPress={() => {
                 this.state.izpis = "kajj";
                 // Alert.alert(this.state.language + " : " + this.state.neki);
-                this.pretvori(this.state.neki, 10, 16);
+                this.pretvoriInIzpis(this.state.neki, this.state.language);
                 // Alert.alert(this.state.izpis);
               }}
             />
