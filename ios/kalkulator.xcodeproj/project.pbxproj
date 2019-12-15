@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* kalkulatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* kalkulatorTests.m */; };
 		08D9F88992AA91B4455B9A11 /* libPods-kalkulatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DE12364894EC36DF13A757 /* libPods-kalkulatorTests.a */; };
@@ -20,6 +19,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* kalkulatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* kalkulatorTests.m */; };
 		7E08AA73F5815D79439BC338 /* libPods-kalkulator-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 662A1550C6E287610C919AF5 /* libPods-kalkulator-tvOSTests.a */; };
 		CDAE5647567D97D3F488AF0F /* libPods-kalkulator-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB23AC7491689B63A4A28971 /* libPods-kalkulator-tvOS.a */; };
+		E506D95276294955A86AC4A5 /* libRNWorkers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7769875A85CD41068C9D70E1 /* libRNWorkers.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +67,8 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F41EA1D24D0369D0EF7E97A0 /* Pods-kalkulatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kalkulatorTests.release.xcconfig"; path = "Target Support Files/Pods-kalkulatorTests/Pods-kalkulatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		FB23AC7491689B63A4A28971 /* libPods-kalkulator-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kalkulator-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		886780E5B03C44EB9A3D0D29 /* RNWorkers.xcodeproj */ = {isa = PBXFileReference; name = "RNWorkers.xcodeproj"; path = "../node_modules/rn-workers/ios/RNWorkers.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		7769875A85CD41068C9D70E1 /* libRNWorkers.a */ = {isa = PBXFileReference; name = "libRNWorkers.a"; path = "libRNWorkers.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D63C20276CD16105B7D8F15 /* libPods-kalkulator.a in Frameworks */,
+				E506D95276294955A86AC4A5 /* libRNWorkers.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +155,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				886780E5B03C44EB9A3D0D29 /* RNWorkers.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -285,7 +289,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -598,6 +602,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kalkulator.app/kalkulator";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/rn-workers/ios/RNWorkers",
+				);
 			};
 			name = Debug;
 		};
@@ -618,6 +630,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kalkulator.app/kalkulator";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/rn-workers/ios/RNWorkers",
+				);
 			};
 			name = Release;
 		};
@@ -638,6 +658,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = kalkulator;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/rn-workers/ios/RNWorkers",
+				);
 			};
 			name = Debug;
 		};
@@ -657,6 +681,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = kalkulator;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/rn-workers/ios/RNWorkers",
+				);
 			};
 			name = Release;
 		};
@@ -685,6 +713,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/rn-workers/ios/RNWorkers",
+				);
 			};
 			name = Debug;
 		};
@@ -713,6 +749,14 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/rn-workers/ios/RNWorkers",
+				);
 			};
 			name = Release;
 		};
@@ -740,6 +784,14 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kalkulator-tvOS.app/kalkulator-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/rn-workers/ios/RNWorkers",
+				);
 			};
 			name = Debug;
 		};
@@ -767,6 +819,14 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kalkulator-tvOS.app/kalkulator-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/rn-workers/ios/RNWorkers",
+				);
 			};
 			name = Release;
 		};

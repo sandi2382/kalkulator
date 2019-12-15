@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.fabricio.vergal.RNWorkers.RNWorkersPackage;
 import com.reactlibrary.RNThreadPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -26,10 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
-          return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new RNThreadPackage(mReactNativeHost)  // <-- Here 
-          );
+          return packages;
         }
 
         @Override
