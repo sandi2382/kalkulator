@@ -25,6 +25,8 @@ import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-ta
 
 import {YellowBox} from 'react-native';
 
+import sleep from 'sleep-promise';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -36,9 +38,6 @@ class App extends Component {
 
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
-
-      msg: '',
-      count: 0,
     };
   }
 
@@ -47,7 +46,6 @@ class App extends Component {
   onSubmit = () => {
     let {current: field} = this.fieldRef;
 
-    console.log(field.value());
   };
 
   formatText = text => {
@@ -73,14 +71,16 @@ class App extends Component {
     this.state.tableData.push([a, b, c, d]);
   }
 
-  pretvoriInIzpis(stevilo, osnova) {
+  async pretvoriInIzpis(stevilo, osnova) {
     if (this.state.tableData !== '') {
       this.state.tableData = [];
     }
     for (var odstevanje = this.pretvoriMedOsnovami(stevilo, osnova, 10); odstevanje > 0; odstevanje--) {
       if (this.state.stop === true) {
+        this.state.stop = false;
         break;
       }
+      await sleep(50);
       var dva = this.pretvoriMedOsnovami(odstevanje, 10, 2);
       // console.warn(odstevanje);
       var osem = this.pretvoriMedOsnovami(odstevanje, 10, 8);
@@ -88,7 +88,7 @@ class App extends Component {
       var sesnajst = this.pretvoriMedOsnovami(odstevanje, 10, 16);
       this.izpis(dva, osem, deset, sesnajst);
       this.setState({
-        izpis: odstevanje,
+        izpis: '',
       });
     }
     var dva = '';
