@@ -32,6 +32,7 @@ class App extends Component {
       language: '2',
       neki: '',
       izpis: '',
+      stop: false,
 
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
@@ -64,17 +65,28 @@ class App extends Component {
       izpis: e,
     });
   }
+
+  izpis(a, b, c, d) {
+    this.state.tableData.push([a, b, c, d]);
+  }
+
   pretvoriInIzpis(stevilo, osnova) {
     if (this.state.tableData !== '') {
       this.state.tableData = [];
     }
     for (var odstevanje = this.pretvoriMedOsnovami(stevilo, osnova, 10); odstevanje > 0; odstevanje--) {
+      if (this.state.stop === true) {
+        break;
+      }
       var dva = this.pretvoriMedOsnovami(odstevanje, 10, 2);
       // console.warn(odstevanje);
       var osem = this.pretvoriMedOsnovami(odstevanje, 10, 8);
       var deset = this.pretvoriMedOsnovami(odstevanje, 10, 10);
       var sesnajst = this.pretvoriMedOsnovami(odstevanje, 10, 16);
-      this.setTmeout(this.state.tableData.push([dva, osem, deset, sesnajst]), 500);
+      this.izpis(dva, osem, deset, sesnajst);
+      this.setState({
+        izpis: odstevanje,
+      });
     }
     var dva = '';
     this.setState({
@@ -87,6 +99,7 @@ class App extends Component {
       language: '2',
       neki: '',
       izpis: '',
+      stop: false,
 
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
@@ -137,7 +150,9 @@ class App extends Component {
               title="Stop"
               style={{height: 80}}
               onPress={() => {
-                
+                this.setState({
+                  stop: true,
+                });
               }}
             />
             <Button
