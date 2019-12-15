@@ -40,8 +40,9 @@ class App extends Component {
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
 
-      rezultati: [],
-      imena: [],
+      itableHead: ['Ime', 'Čas (ms)'],
+      itableData: [],
+
       porabljenCas: '',
       vprasajIme: false,
       ime: '',
@@ -149,6 +150,7 @@ class App extends Component {
       stop: false,
       tece: false,
       porabljenCas: porabljenCas,
+      vprasajIme: true,
     });
   }
 
@@ -193,8 +195,18 @@ class App extends Component {
     });
   }
 
-  shraniPodatke(ime, cas) {
-    // Alert.alert(this.state.ime+' '+this.state.porabljenCas)
+  shraniPodatke() {
+    var ime = this.state.ime;
+    var cas = this.state.porabljenCas;
+    this.state.imena.push(ime);
+    this.state.rezultati.push(cas);
+    this.state.itableData.push([ime, cas]);
+    this.setState({
+      ime: '',
+      vprasajIme: false,
+      porabljenCas: '',
+      izpis: 'Shranjeno!',
+    });
   }
 
   render() {
@@ -273,7 +285,7 @@ class App extends Component {
                 title="Shrani"
                 style={{height: 80}}
                 onPress={() => {
-                  this.shraniPodatke(1, 1);
+                  this.shraniPodatke();
                 }}
               />
             ) : null}
@@ -282,6 +294,12 @@ class App extends Component {
             <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
               <Row data={this.state.tableHead} style={styles.head} textStyle={styles.text}/>
               <Rows data={this.state.tableData} textStyle={styles.text}/>
+            </Table>
+          </ScrollView>
+          <ScrollView style={{ backgroundColor: '#eee', height: 140}}>
+            <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+              <Row data={this.state.itableHead} style={styles.head} textStyle={styles.text}/>
+              <Rows data={this.state.itableData} textStyle={styles.text}/>
             </Table>
           </ScrollView>
         </View>
