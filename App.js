@@ -12,7 +12,7 @@ import {
 
 Promise = require('react-native/Libraries/Promise');
 
-import { Table, Row, Rows, } from 'react-native-table-component';
+import {Table, Row, Rows} from 'react-native-table-component';
 
 import sleep from 'sleep-promise';
 
