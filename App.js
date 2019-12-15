@@ -5,25 +5,14 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar,
-  Platform,
   Picker,
   Button,
-  Alert,
   TextInput,
 } from 'react-native';
 
-import {
-  TextField,
-  FilledTextField,
-  OutlinedTextField,
-} from 'react-native-material-textfield';
-
 Promise = require('react-native/Libraries/Promise');
 
-import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
-
-import {YellowBox} from 'react-native';
+import { Table, Row, Rows, } from 'react-native-table-component';
 
 import sleep from 'sleep-promise';
 
