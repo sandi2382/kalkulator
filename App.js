@@ -194,7 +194,7 @@ class App extends Component {
   }
 
   shraniPodatke(ime, cas) {
-    Alert.alert(this.state.ime+' '+this.state.porabljenCas)
+    // Alert.alert(this.state.ime+' '+this.state.porabljenCas)
   }
 
   render() {
