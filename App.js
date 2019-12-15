@@ -206,7 +206,7 @@ class App extends Component {
     return (
       <SafeAreaView>
         <View style={styles.flexWrapper}>
-          <View style={{ backgroundColor: '#eeff96' }}>
+          <View style={{backgroundColor: '#eeff96'}}>
             <Text>Osnova: </Text>
             <Picker
               selectedValue={this.state.osnovniSistem}
@@ -220,20 +220,20 @@ class App extends Component {
               <Picker.Item label="Osnova 16" value="16" />
             </Picker>
           </View>
-          <View style={{ backgroundColor: '#eafa00' }}>
+          <View style={{backgroundColor: '#eafa00'}}>
             <TextInput
               style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-              placeholder = 'Vnesite število'
+              placeholder="Vnesite število"
               onChangeText={(itemValue, itemIndex) =>
                 this.setState({neki: itemValue})
               }
               value={this.state.neki}
             />
           </View>
-          <View style={{ backgroundColor: '#eafa00' }}>
+          <View style={{backgroundColor: '#eafa00'}}>
             <Text>{this.state.izpis}</Text>
           </View>
-          <View style={{ backgroundColor: '#eeffff' }}>
+          <View style={{backgroundColor: '#eeffff'}}>
             {!this.state.tece ? (
               <Button
                 title="Start"
@@ -286,24 +286,24 @@ class App extends Component {
               />
             ) : null}
           </View>
-          <ScrollView style={{ backgroundColor: '#fff', height: 300}}>
+          <ScrollView style={{backgroundColor: '#fff', height: 300}}>
             <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
               <Row
                 data={this.state.tableHead}
                 style={styles.head}
                 textStyle={styles.text}
               />
-              <Rows data={this.state.tableData} textStyle={styles.text}/>
+              <Rows data={this.state.tableData} textStyle={styles.text} />
             </Table>
           </ScrollView>
-          <ScrollView style={{ backgroundColor: '#eee', height: 140}}>
+          <ScrollView style={{backgroundColor: '#eee', height: 140}}>
             <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
               <Row
                 data={this.state.itableHead}
                 style={styles.head}
                 textStyle={styles.text}
               />
-              <Rows data={this.state.itableData} textStyle={styles.text}/>
+              <Rows data={this.state.itableData} textStyle={styles.text} />
             </Table>
           </ScrollView>
         </View>
