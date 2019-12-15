@@ -21,6 +21,8 @@ import {
 
 Promise = require('react-native/Libraries/Promise');
 
+import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+
 class App extends Component {
   constructor(props) {
     super(props);
