@@ -30,12 +30,11 @@ class App extends Component {
     super(props);
     this.state = {
       language: '2',
-      neki: 'a',
-      izpis: '??',
+      neki: '',
+      izpis: '',
 
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
-      tableData: [
-      ],
+      tableData: [],
     };
   }
 
@@ -53,6 +52,7 @@ class App extends Component {
 
   pretvoriMedOsnovami(e, a, t) {
     var r = parseInt(e, a);
+    // e = e.split(' ').join('');
     if ('' != e) {
       var i = r.toString(t);
       return 'NaN' == i.toString() && (i = 'Invalid Input'), i;
@@ -65,17 +65,31 @@ class App extends Component {
     });
   }
   pretvoriInIzpis(stevilo, osnova) {
+    if (this.state.tableData !== '') {
+      this.state.tableData = [];
+    }
     for (var odstevanje = this.pretvoriMedOsnovami(stevilo, osnova, 10); odstevanje > 0; odstevanje--) {
       var dva = this.pretvoriMedOsnovami(odstevanje, 10, 2);
-      console.warn(odstevanje);
+      // console.warn(odstevanje);
       var osem = this.pretvoriMedOsnovami(odstevanje, 10, 8);
       var deset = this.pretvoriMedOsnovami(odstevanje, 10, 10);
       var sesnajst = this.pretvoriMedOsnovami(odstevanje, 10, 16);
-      this.state.tableData.push([dva, osem, deset, sesnajst]);
+      this.setTmeout(this.state.tableData.push([dva, osem, deset, sesnajst]), 500);
     }
-    var dva = "a";
+    var dva = '';
     this.setState({
       izpis: dva,
+    });
+  }
+
+  pocisti() {
+    this.setState({
+      language: '2',
+      neki: '',
+      izpis: '',
+
+      tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
+      tableData: [],
     });
   }
 
@@ -97,6 +111,18 @@ class App extends Component {
               <Picker.Item label="Osnova 16" value="16" />
             </Picker>
           </View>
+          <View style={{ backgroundColor: '#eafa00' }}>
+            <TextInput
+              style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+              onChangeText={(itemValue, itemIndex) =>
+                this.setState({neki: itemValue})
+              }
+              value={this.state.neki}
+            />
+          </View>
+          <View style={{ backgroundColor: '#eafa00' }}>
+            <Text>{this.state.izpis}</Text>
+          </View>
           <View style={{ backgroundColor: '#eeffff' }}>
             <Button
               title="Start"
@@ -114,17 +140,13 @@ class App extends Component {
                 
               }}
             />
-          </View>
-          <View style={{ backgroundColor: '#eafa00' }}>
-            <TextInput
-              style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-              onChangeText={(itemValue, itemIndex) =>
-                this.setState({neki: itemValue})
-              }
+            <Button
+              title="Počisti"
+              style={{height: 80}}
+              onPress={() => {
+                this.pocisti();
+              }}
             />
-          </View>
-          <View style={{ backgroundColor: '#eafa00' }}>
-            <Text>{this.state.izpis}</Text>
           </View>
           <ScrollView style={{ backgroundColor: '#fff', height: 300}}>
             <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
