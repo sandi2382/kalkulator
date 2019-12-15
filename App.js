@@ -122,6 +122,13 @@ class App extends Component {
                 // Alert.alert(this.state.izpis);
               }}
             />
+            <Button
+              title="Stop"
+              style={{height: 80}}
+              onPress={() => {
+                
+              }}
+            />
           </View>
           <View style={{ backgroundColor: '#eafa00' }}>
             <TextInput
