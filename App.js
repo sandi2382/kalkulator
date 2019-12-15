@@ -23,6 +23,8 @@ Promise = require('react-native/Libraries/Promise');
 
 import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
+import {YellowBox} from 'react-native';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -51,7 +53,7 @@ class App extends Component {
 
   pretvoriMedOsnovami(e, a, t) {
     var r = parseInt(e, a);
-    if ('' != e.trim()) {
+    if ('' != e) {
       var i = r.toString(t);
       return 'NaN' == i.toString() && (i = 'Invalid Input'), i;
     }
@@ -63,11 +65,15 @@ class App extends Component {
     });
   }
   pretvoriInIzpis(stevilo, osnova) {
-    var dva = this.pretvoriMedOsnovami(stevilo, osnova, 2);
-    var osem = this.pretvoriMedOsnovami(stevilo, osnova, 8);
-    var deset = this.pretvoriMedOsnovami(stevilo, osnova, 10);
-    var sesnajst = this.pretvoriMedOsnovami(stevilo, osnova, 16);
-    this.state.tableData.push([dva, osem, deset, sesnajst]);
+    for (var odstevanje = this.pretvoriMedOsnovami(stevilo, osnova, 10); odstevanje >= 0; odstevanje--) {
+      var dva = this.pretvoriMedOsnovami(odstevanje, 10, 2);
+      console.warn(odstevanje);
+      var osem = this.pretvoriMedOsnovami(odstevanje, 10, 8);
+      var deset = this.pretvoriMedOsnovami(odstevanje, 10, 10);
+      var sesnajst = this.pretvoriMedOsnovami(odstevanje, 10, 16);
+      this.state.tableData.push([dva, osem, deset, sesnajst]);
+    }
+    var dva = "a";
     this.setState({
       izpis: dva,
     });
@@ -96,7 +102,6 @@ class App extends Component {
               title="Start"
               style={{height: 80}}
               onPress={() => {
-                this.state.izpis = "kajj";
                 // Alert.alert(this.state.language + " : " + this.state.neki);
                 this.pretvoriInIzpis(this.state.neki, this.state.language);
                 // Alert.alert(this.state.izpis);
