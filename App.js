@@ -38,6 +38,9 @@ class App extends Component {
 
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
+
+      zacetniCas: '',
+      koncniCas: '',
     };
   }
 
@@ -72,6 +75,7 @@ class App extends Component {
   }
 
   async pretvoriInIzpis(stevilo, osnova) {
+    var zacetniCas = new Date().getTime();
     if (this.state.tableData !== '') {
       this.state.tableData = [];
     }
@@ -80,7 +84,7 @@ class App extends Component {
         this.state.stop = false;
         break;
       }
-      await sleep(50);
+      await sleep(10);
       var dva = this.pretvoriMedOsnovami(odstevanje, 10, 2);
       // console.warn(odstevanje);
       var osem = this.pretvoriMedOsnovami(odstevanje, 10, 8);
@@ -92,8 +96,10 @@ class App extends Component {
       });
     }
     var dva = '';
+    var koncniCas = new Date().getTime();
+    var porabljenCas = (koncniCas - zacetniCas);
     this.setState({
-      izpis: dva,
+      izpis: 'Porabljen čas: ' + porabljenCas + ' milisekund',
     });
   }
 
