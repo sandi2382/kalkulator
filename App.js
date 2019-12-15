@@ -36,6 +36,9 @@ class App extends Component {
 
       tableHead: ['BIN', 'OCT', 'DEC', 'DEX'],
       tableData: [],
+
+      msg: '',
+      count: 0,
     };
   }
 
