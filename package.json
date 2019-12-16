@@ -10,14 +10,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "es-to-primitive": "^1.2.1",
+    "glob": "^7.1.6",
+    "object-inspect": "^1.7.0",
     "parser": "^0.1.4",
     "react": "16.9.0",
     "react-native": "0.61.4",
-    "react-native-material-textfield": "^0.16.1",
     "react-native-table-component": "^1.2.1",
-    "react-native-threads": "0.0.17",
-    "react-timer-mixin": "^0.13.4",
-    "rn-workers": "^0.1.7",
     "sleep-promise": "^8.0.1",
     "typescript": "^3.7.2"
   },
