@@ -237,7 +237,7 @@ class App extends Component {
             {!this.state.tece ? (
               <Button
                 title="Start"
-                style={{height: 80}}
+                style={styles.vju4}
                 onPress={() => {
                   // Alert.alert(this.state.osnovniSistem + " : " + this.state.neki);
                   this.startKlik();
@@ -251,7 +251,7 @@ class App extends Component {
             ) : (
               <Button
                 title="Stop"
-                style={{height: 80}}
+                style={styles.buton1}
                 onPress={() => {
                   this.stopKlik();
                 }}
@@ -260,7 +260,7 @@ class App extends Component {
             {!this.state.tece ? (
               <Button
                 title="Počisti"
-                style={{height: 80}}
+                style={styles.buton2}
                 onPress={() => {
                   this.pocisti();
                 }}
@@ -268,7 +268,7 @@ class App extends Component {
             ) : null}
             {this.state.vprasajIme ? (
               <TextInput
-                style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                style={styles.textin1}
                 placeholder="Vnesite ime"
                 onChangeText={(itemValue, itemIndex) =>
                   this.setState({ime: itemValue})
@@ -279,7 +279,7 @@ class App extends Component {
             {this.state.vprasajIme ? (
               <Button
                 title="Shrani"
-                style={{height: 80}}
+                style={styles.buton3}
                 onPress={() => {
                   this.shraniPodatke();
                 }}
@@ -378,7 +378,24 @@ const styles = StyleSheet.create({
   vju3: {
     backgroundColor: '#eeffff',
   },
+  vju4: {
+    height: 80,
+  },
   tekstinput1: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+  },
+  buton1: {
+    height: 80,
+  },
+  buton2: {
+    height: 80,
+  },
+  buton3: {
+    height: 80,
+  },
+  textin1: {
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
