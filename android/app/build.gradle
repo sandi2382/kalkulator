@@ -179,8 +179,8 @@ android {
 }
 
 dependencies {
-    implementation project(':rn-workers')
-    implementation project(':react-native-threads')
+    // implementation project(':rn-workers')
+    // implementation project(':react-native-threads')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
