@@ -191,8 +191,8 @@ class App extends Component {
   shraniPodatke() {
     var ime = this.state.ime;
     var cas = this.state.porabljenCas;
-    this.state.imena.push(ime);
-    this.state.rezultati.push(cas);
+    // this.state.imena.push(ime);
+    // this.state.rezultati.push(cas);
     this.state.itableData.push([ime, cas]);
     this.setState({
       ime: '',
@@ -206,7 +206,7 @@ class App extends Component {
     return (
       <SafeAreaView>
         <View style={styles.flexWrapper}>
-          <View style={{backgroundColor: '#eeff96'}}>
+          <View style={styles.viewSelekt}>
             <Text>Osnova: </Text>
             <Picker
               selectedValue={this.state.osnovniSistem}
@@ -220,9 +220,9 @@ class App extends Component {
               <Picker.Item label="Osnova 16" value="16" />
             </Picker>
           </View>
-          <View style={{backgroundColor: '#eafa00'}}>
+          <View style={styles.vju1}>
             <TextInput
-              style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+              style={styles.tekstinput1}
               placeholder="Vnesite število"
               onChangeText={(itemValue, itemIndex) =>
                 this.setState({neki: itemValue})
@@ -230,10 +230,10 @@ class App extends Component {
               value={this.state.neki}
             />
           </View>
-          <View style={{backgroundColor: '#eafa00'}}>
+          <View style={styles.vju2}>
             <Text>{this.state.izpis}</Text>
           </View>
-          <View style={{backgroundColor: '#eeffff'}}>
+          <View style={styles.vju3}>
             {!this.state.tece ? (
               <Button
                 title="Start"
@@ -366,6 +366,23 @@ const styles = StyleSheet.create({
   //   borderWidth: 1,
   //   borderColor: 'red',
   // },
+  viewSelekt: {
+    backgroundColor: '#eeff96',
+  },
+  vju1: {
+    backgroundColor: '#eafa00',
+  },
+  vju2: {
+    backgroundColor: '#eafa00',
+  },
+  vju3: {
+    backgroundColor: '#eeffff',
+  },
+  tekstinput1: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+  },
   head: {
     height: 40,
     backgroundColor: '#f1f8ff',
