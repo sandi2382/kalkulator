@@ -1,0 +1,3 @@
+# kalkulator
+Neki kalkulator z odštevanjem za številske sestave al neki...
+#FERI
