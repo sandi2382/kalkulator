@@ -286,8 +286,8 @@ class App extends Component {
               />
             ) : null}
           </View>
-          <ScrollView style={{backgroundColor: '#fff', height: 300}}>
-            <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+          <ScrollView style={styles.skrol1}>
+            <Table borderStyle={styles.tabelica1}>
               <Row
                 data={this.state.tableHead}
                 style={styles.head}
@@ -296,8 +296,8 @@ class App extends Component {
               <Rows data={this.state.tableData} textStyle={styles.text} />
             </Table>
           </ScrollView>
-          <ScrollView style={{backgroundColor: '#eee', height: 140}}>
-            <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+          <ScrollView style={styles.skrol2}>
+            <Table borderStyle={styles.tabelica2}>
               <Row
                 data={this.state.itableHead}
                 style={styles.head}
@@ -394,6 +394,22 @@ const styles = StyleSheet.create({
   },
   buton3: {
     height: 80,
+  },
+  skrol1: {
+    backgroundColor: '#fff',
+    height: 300,
+  },
+  skrol2: {
+    backgroundColor: '#eee',
+    height: 140,
+  },
+  tabelica1: {
+    borderWidth: 2,
+    borderColor: '#c8e1ff',
+  },
+  tabelica2: {
+    borderWidth: 2,
+    borderColor: '#c8e1ff',
   },
   textin1: {
     height: 40,
