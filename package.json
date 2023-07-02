@@ -15,7 +15,7 @@
     "object-inspect": "^1.7.0",
     "parser": "^0.1.4",
     "react": "16.9.0",
-    "react-native": "0.61.4",
+    "react-native": "0.62.3",
     "react-native-table-component": "^1.2.1",
     "sleep-promise": "^8.0.1",
     "typescript": "^3.7.2"
